@@ -1,0 +1,8 @@
+@if (visible) {
+  <div class="toast" [class.error]="variant === 'error'" [class.success]="variant === 'success'">
+    <span>{{ message }}</span>
+    <button type="button" class="toast-close" (click)="closeToast()" aria-label="Close notification">
+      x
+    </button>
+  </div>
+}

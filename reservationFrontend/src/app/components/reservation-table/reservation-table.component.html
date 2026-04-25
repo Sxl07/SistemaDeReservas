@@ -1,0 +1,66 @@
+<section class="reservation-table-wrapper">
+  <header class="reservation-table-header">
+    <h2>Reservations</h2>
+    <div class="actions-group">
+      <a routerLink="/reservations/new" class="new-btn">New reservation</a>
+      <button type="button" class="refresh-btn" (click)="loadReservations()" [disabled]="loading">
+        Refresh
+      </button>
+    </div>
+  </header>
+
+  @if (loading) {
+    <p class="status-message">Loading reservations...</p>
+  }
+
+  @if (errorMessage) {
+    <p class="status-message error">{{ errorMessage }}</p>
+  }
+
+  @if (!loading) {
+    <div class="table-container">
+      @if (reservations.length > 0) {
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Client</th>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Service</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (reservation of reservations; track reservation.id) {
+              <tr>
+                <td>{{ reservation.id }}</td>
+                <td>{{ reservation.clientName }}</td>
+                <td>{{ reservation.date }}</td>
+                <td>{{ reservation.time }}</td>
+                <td>{{ reservation.service }}</td>
+                <td>
+                  <span class="status-pill" [class.cancelled]="reservation.status === 'CANCELLED'">
+                    {{ reservation.status }}
+                  </span>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="cancel-btn"
+                    (click)="cancelReservation(reservation.id)"
+                    [disabled]="!canCancel(reservation)">
+                    Cancel
+                  </button>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      } @else {
+        <p class="status-message">No reservations found.</p>
+      }
+    </div>
+  }
+</section>

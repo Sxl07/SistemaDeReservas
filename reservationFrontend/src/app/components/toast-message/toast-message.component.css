@@ -1,0 +1,35 @@
+.toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 1000;
+  min-width: 260px;
+  max-width: 440px;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(127, 182, 255, 0.28);
+  color: var(--text-0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(6px);
+}
+
+.toast.error {
+  background: linear-gradient(140deg, rgba(36, 53, 75, 0.96) 0%, rgba(24, 37, 54, 0.96) 100%);
+}
+
+.toast.success {
+  background: linear-gradient(140deg, rgba(41, 63, 90, 0.96) 0%, rgba(26, 41, 59, 0.96) 100%);
+}
+
+.toast-close {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}

@@ -1,0 +1,34 @@
+:root {
+	--bg-0: #090d14;
+	--bg-1: #0f1622;
+	--bg-2: #162233;
+	--surface-0: #121c2a;
+	--surface-1: #1a283a;
+	--surface-2: #22344a;
+	--line: #2f445d;
+	--text-0: #e8f0fa;
+	--text-1: #b6c6d8;
+	--accent-0: #7fb6ff;
+	--accent-1: #5f9df2;
+	--danger-0: #9ab4d5;
+	--shadow-soft: 0 20px 45px rgba(4, 8, 16, 0.55);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	margin: 0;
+	color: var(--text-0);
+	background:
+		radial-gradient(circle at 12% 6%, rgba(127, 182, 255, 0.22) 0%, rgba(127, 182, 255, 0) 30%),
+		radial-gradient(circle at 88% 94%, rgba(127, 182, 255, 0.15) 0%, rgba(127, 182, 255, 0) 35%),
+		linear-gradient(160deg, var(--bg-0) 0%, var(--bg-1) 40%, #0b121d 100%);
+	font-family: 'Space Grotesk', 'Manrope', 'Segoe UI', sans-serif;
+}

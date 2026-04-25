@@ -1,0 +1,117 @@
+.reservation-form-wrapper {
+  max-width: 920px;
+  margin: 1.5rem auto;
+  padding: 1.15rem;
+  border-radius: 16px;
+  border: 1px solid rgba(127, 182, 255, 0.18);
+  background: linear-gradient(180deg, rgba(31, 47, 67, 0.92) 0%, rgba(20, 32, 47, 0.95) 100%);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.form-header h2 {
+  margin: 0;
+  color: var(--text-0);
+}
+
+.back-link {
+  text-decoration: none;
+  color: var(--accent-0);
+  font-weight: 700;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field span {
+  font-weight: 700;
+  color: var(--text-0);
+}
+
+.field input,
+.field select {
+  border: 1px solid rgba(127, 182, 255, 0.28);
+  border-radius: 10px;
+  padding: 0.5rem 0.6rem;
+  font: inherit;
+  color: var(--text-0);
+  background-color: #0f1724;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent-0);
+  box-shadow: 0 0 0 3px rgba(127, 182, 255, 0.18);
+}
+
+.field small {
+  color: var(--danger-0);
+}
+
+.field input[type='date']::-webkit-calendar-picker-indicator,
+.field input[type='time']::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(1.35) contrast(1.05);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.field input[type='time']::-webkit-clear-button,
+.field input[type='time']::-webkit-inner-spin-button,
+.field input[type='date']::-webkit-clear-button,
+.field input[type='date']::-webkit-inner-spin-button {
+  filter: invert(1) brightness(1.2);
+}
+
+.field input[type='date'],
+.field input[type='time'] {
+  padding-right: 0.75rem;
+  color-scheme: white;
+}
+
+.submit-btn {
+  margin-top: 1rem;
+  border: 1px solid rgba(127, 182, 255, 0.32);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  background-color: rgba(95, 157, 242, 0.18);
+  color: var(--text-0);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-1px);
+  background-color: rgba(127, 182, 255, 0.24);
+}
+
+.submit-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .reservation-form-wrapper {
+    margin: 1rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

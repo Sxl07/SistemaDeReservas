@@ -1,0 +1,58 @@
+<section class="reservation-form-wrapper">
+  <header class="form-header">
+    <h2>Create Reservation</h2>
+    <a routerLink="/reservations" class="back-link">Back to table</a>
+  </header>
+
+  <form [formGroup]="reservationForm" (ngSubmit)="submitReservation()" novalidate>
+    <div class="form-grid">
+      <label class="field">
+        <span>Nombre del Cliente</span>
+        <input type="text" formControlName="clientName" placeholder="Enter client name" />
+        @if (isInvalid('clientName')) {
+          <small>Client name is required.</small>
+        }
+      </label>
+
+      <label class="field">
+        <span>fecha</span>
+        <input type="date" formControlName="date" />
+        @if (isInvalid('date')) {
+          <small>Date is required.</small>
+        }
+      </label>
+
+      <label class="field">
+        <span>hora</span>
+        <input type="time" formControlName="time" />
+        @if (isInvalid('time')) {
+          <small>Time is required.</small>
+        }
+      </label>
+
+      <label class="field">
+        <span>servicio</span>
+        <select formControlName="service">
+          <option value="" disabled>Select a service</option>
+          @for (serviceOption of serviceOptions; track serviceOption) {
+            <option [value]="serviceOption">{{ serviceOption }}</option>
+          }
+        </select>
+        @if (isInvalid('service')) {
+          <small>Service is required.</small>
+        }
+      </label>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="submitting">
+      {{ submitting ? 'Saving...' : 'Create reservation' }}
+    </button>
+  </form>
+</section>
+
+<app-toast-message
+  [visible]="toastVisible"
+  [message]="toastMessage"
+  variant="error"
+  (close)="hideToast()">
+</app-toast-message>
