@@ -2,3 +2,4 @@
 # This file contains instructions for AI agents and should NOT be committed to GitHub
 
 AGENTS.md
+.gitignore
